@@ -1,0 +1,120 @@
+:root {
+  --bleu-fonce: #0B1F2F;
+  --vert: #00A878;
+  --fond: #F7F9FA;
+  --texte: #1A1A1A;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background: var(--fond);
+  color: var(--bleu-fonce);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+  max-width: 420px;
+}
+
+input[type="text"], input[type="file"] {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus, input[type="file"]:focus {
+  border-color: var(--vert);
+}
+
+#badge-preview {
+  width: 300px;        /* largeur réduite */
+  height: 450px;       /* hauteur plus grande pour portrait */
+  background: #fff;
+  border: 2px solid var(--bleu-fonce);
+  border-radius: 12px;
+  margin-top: 2rem;
+  position: relative;
+  padding: 1rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+
+#badge-preview img.photo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#badge-preview .name {
+  position: absolute;
+  top: 30px;
+  left: 120px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#badge-preview .surname {
+  position: absolute;
+  top: 70px;
+  left: 120px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+#badge-preview img.qrcode {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+button {
+  background: var(--bleu-fonce);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+button:hover {
+  background: var(--vert);
+  transform: translateY(-2px);
+}
+
+#badge-preview img.photo { top: 40px; left: 30px; width: 100px; height: 100px; }
+#badge-preview .name { top: 160px; left: 30px; font-size: 1.8rem; }
+#badge-preview .surname { top: 200px; left: 30px; font-size: 1.4rem; }
+#badge-preview img.qrcode { bottom: 30px; right: 30px; width: 100px; height: 100px; }

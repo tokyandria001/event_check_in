@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QREventio - Événement à venir</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <img src="image.png" alt="Logo QREventio" />
+  </header>
+
+  <h1>Un grand événement arrive bientôt 🎉</h1>
+  <p class="slogan">Restez connectés — l'accès événementiel modernisé</p>
+
+  <div class="button-group">
+    <button id="btn-info">En savoir plus</button>
+    <button id="btn-participer">Participer</button>
+  </div>
+
+  <!-- Modal Info -->
+  <div class="modal" id="modal-info">
+    <div class="modal-content">
+      <span class="close" data-close="info">&times;</span>
+      <h2 style="color: var(--bleu-fonce)">Détails de l'événement</h2>
+      <p><strong>Nom :</strong> Innovation & Technologie 2025</p>
+      <p><strong>Date :</strong> 12 novembre 2025</p>
+      <p><strong>Lieu :</strong> Paris Expo Porte de Versailles</p>
+      <p><strong>Description :</strong> Une journée dédiée à l'innovation, aux startups et aux nouvelles technologies.</p>
+    </div>
+  </div>
+
+  <!-- Modal Participation -->
+  <div class="modal" id="modal-participer">
+    <div class="modal-content">
+      <h2 style="color: var(--bleu-fonce)">Inscription à l'événement</h2>
+      <p>Remplissez le formulaire pour participer :</p>
+      <form id="inscription-form">
+        <label><input type="text" id="nom" name="nom" placeholder="Votre nom" required /></label>
+        <label><input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required /></label>
+        <label><input type="email" id="email" name="email" placeholder="Votre e-mail" required /></label>
+        <label><input type="tel" id="telephone" name="telephone" placeholder="Votre téléphone" /></label>
+        <button type="submit">Envoyer</button>
+        <p id="confirmation" style="color: var(--vert); display: none; margin-top: 1rem;">
+          ✅ Inscription envoyée ! Vérifiez votre boîte mail.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <a href="badge.html">Aperçu du badge</a>
+
+  <script src="script.js"></script>
+</body>
+</html>

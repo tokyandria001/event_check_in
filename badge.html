@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Badge</title>
+  <link rel="stylesheet" href="badge.css">
+</head>
+<body>
+
+  <h1>Personnaliser votre badge</h1>
+
+  <label>Nom : <input type="text" id="nom" placeholder="Votre nom"></label>
+  <label>Prénom : <input type="text" id="prenom" placeholder="Votre prénom"></label>
+  <label>Photo : <input type="file" id="photo" accept="image/*"></label>
+
+  <div id="badge-preview">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?data=EXEMPLE_UID&size=80x80" class="qrcode" id="qrcode">
+    <img class="photo" id="photo-preview" src="">
+    <div class="name" id="name-preview">Nom</div>
+    <div class="surname" id="surname-preview">Prénom</div>
+  </div>
+
+  <button id="generate-pdf">Générer PDF</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="badge.js"></script>
+</body>
+</html>
