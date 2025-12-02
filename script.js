@@ -1,29 +1,45 @@
-const infoModal = document.getElementById("modal-info");
-const participerModal = document.getElementById("modal-participer");
+// --- RÉFÉRENCES DES MODALES ---
+const modalInfo = document.getElementById("modal-info");
+const modalInscription = document.getElementById("modal-inscription");
 
-document.getElementById("btn-info").onclick = () => infoModal.style.display = "flex";
-document.getElementById("btn-participer").onclick = () => participerModal.style.display = "flex";
+// --- OUVERTURE DES MODALES ---
+document.getElementById("open-info").onclick = () => {
+  modalInfo.style.display = "flex";
+};
 
-document.querySelectorAll(".close").forEach(closeBtn => {
-  closeBtn.onclick = () => {
-    document.getElementById(`modal-${closeBtn.dataset.close}`).style.display = "none";
+document.getElementById("open-inscription").onclick = () => {
+  modalInscription.style.display = "flex";
+};
+
+// --- FERMETURE PAR BOUTON ---
+document.querySelectorAll(".close").forEach(btn => {
+  btn.onclick = () => {
+    const target = btn.dataset.modal;
+    document.getElementById(`modal-${target}`).style.display = "none";
   };
 });
 
+// --- FERMETURE EN CLIQUANT HORS MODALE ---
 window.onclick = (e) => {
-  if (e.target.classList.contains("modal")) e.target.style.display = "none";
+  if (e.target.classList.contains("modal")) {
+    e.target.style.display = "none";
+  }
 };
 
-// 🔐 TOKEN SECRET (pour sécurité entre front et Make)
+// --- TOKEN FRONT (si besoin Make.com) ---
 const SECRET_TOKEN = "mon_token_secret_123";
 
-document.getElementById("inscription-form").onsubmit = async (e) => {
+// --- FORMULAIRE D’INSCRIPTION ---
+document.getElementById("form-inscription").onsubmit = async (e) => {
   e.preventDefault();
 
-  const nom = document.getElementById("nom").value.trim();
-  const prenom = document.getElementById("prenom").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const telephone = document.getElementById("telephone").value.trim();
+  const form = e.target;
+
+  const nom = form.nom.value.trim();
+  const prenom = form.prenom.value.trim();
+  const email = form.email.value.trim();
+  const telephone = form.telephone.value.trim();
+
 
   if (!nom || !prenom || !email) {
     alert("Veuillez remplir tous les champs obligatoires.");
@@ -50,14 +66,14 @@ document.getElementById("inscription-form").onsubmit = async (e) => {
     });
 
     if (response.ok) {
-      document.getElementById("confirmation").style.display = "block";
-      document.getElementById("inscription-form").reset();
+      alert("Votre inscription a bien été envoyée !");
+      form.reset();
+      modalInscription.style.display = "none";
     } else {
-      console.error("Erreur HTTP :", response.status, response.statusText);
-      alert("Erreur lors de l'envoi. Réessayez plus tard.");
+      alert("Erreur lors de l'envoi. Veuillez réessayer.");
     }
   } catch (error) {
     console.error("Erreur Make :", error);
-    alert("Problème de connexion à Make.");
+    alert("Impossible de contacter Make pour l’instant.");
   }
 };

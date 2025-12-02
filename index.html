@@ -1,58 +1,152 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QREventio - Événement à venir</title>
-  <link rel="stylesheet" href="style.css">
+  <title>QREventio - Événement</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <header>
-    <img src="image.png" alt="Logo QREventio" />
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <img src="image.png" alt="Logo QREventio" class="logo" />
+    </div>
   </header>
 
-  <h1>Un grand événement arrive bientôt 🎉</h1>
-  <p class="slogan">Restez connectés — l'accès événementiel modernisé</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Un Grand Événement Arrive 🎉</h1>
+      <p class="subtitle">Innovation & Technologie 2025 — Paris Expo</p>
 
-  <div class="button-group">
-    <button id="btn-info">En savoir plus</button>
-    <button id="btn-participer">Participer</button>
-  </div>
+      <div class="btn-group">
+        <button class="btn primary" id="open-info">En savoir plus</button>
+        <button class="btn secondary" id="open-inscription">Participer</button>
+      </div>
+    </div>
+  </section>
 
-  <!-- Modal Info -->
+  <!-- MAIN CARD -->
+  <main class="main-content">
+    <div class="container card">
+
+      <section>
+        <h2>Bienvenue 👋</h2>
+        <p>
+          Nous vous accueillons sur la plateforme officielle de l’événement
+          <strong>Innovation & Technologie 2025</strong>. Découvrez une journée dédiée aux
+          startups, experts, créateurs et passionnés de technologie.
+        </p>
+      </section>
+
+      <section>
+        <h2>À propos de l'événement</h2>
+        <p>
+          Conférences inspirantes, démonstrations innovantes, workshops exclusifs,
+          networking et découvertes technologiques vous attendent.
+        </p>
+      </section>
+
+      <section>
+        <h2>Pourquoi participer ?</h2>
+        <ul class="list">
+          <li>🚀 Explorez les technologies de demain</li>
+          <li>🤝 Rencontrez des experts du secteur</li>
+          <li>💡 Participez à des ateliers exclusifs</li>
+          <li>📈 Développez vos projets et idées</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Invités & Intervenants</h2>
+        <ul class="list">
+          <li>👤 Marie Dupont — CEO TechNova</li>
+          <li>👤 Ahmed Belkacem — Expert IA</li>
+          <li>👤 Laura Sanchez — UX Designer</li>
+          <li>👤 Thomas Leroy — Développeur</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Programme</h2>
+        <ul class="list">
+          <li>09:00 — Accueil & café ☕</li>
+          <li>10:00 — Keynote d'ouverture</li>
+          <li>11:30 — Ateliers pratiques</li>
+          <li>14:00 — Démonstrations</li>
+          <li>17:00 — Conférence de clôture</li>
+        </ul>
+      </section>
+
+      <a href="badge.html" class="badge-link">👉 Voir votre badge</a>
+
+    </div>
+  </main>
+
+  <!-- MODALE INFO -->
   <div class="modal" id="modal-info">
-    <div class="modal-content">
-      <span class="close" data-close="info">&times;</span>
-      <h2 style="color: var(--bleu-fonce)">Détails de l'événement</h2>
-      <p><strong>Nom :</strong> Innovation & Technologie 2025</p>
+    <div class="modal-box">
+      <span class="close" data-modal="info">&times;</span>
+      <h2>Détails de l'événement</h2>
       <p><strong>Date :</strong> 12 novembre 2025</p>
       <p><strong>Lieu :</strong> Paris Expo Porte de Versailles</p>
-      <p><strong>Description :</strong> Une journée dédiée à l'innovation, aux startups et aux nouvelles technologies.</p>
+      <p><strong>Description :</strong> Une journée dédiée aux startups & technologies.</p>
     </div>
   </div>
 
-  <!-- Modal Participation -->
-  <div class="modal" id="modal-participer">
-    <div class="modal-content">
-      <h2 style="color: var(--bleu-fonce)">Inscription à l'événement</h2>
-      <p>Remplissez le formulaire pour participer :</p>
-      <form id="inscription-form">
-        <label><input type="text" id="nom" name="nom" placeholder="Votre nom" required /></label>
-        <label><input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required /></label>
-        <label><input type="email" id="email" name="email" placeholder="Votre e-mail" required /></label>
-        <label><input type="tel" id="telephone" name="telephone" placeholder="Votre téléphone" /></label>
-        <button type="submit">Envoyer</button>
-        <p id="confirmation" style="color: var(--vert); display: none; margin-top: 1rem;">
-          ✅ Inscription envoyée ! Vérifiez votre boîte mail.
+  <!-- MODALE INSCRIPTION -->
+  <div class="modal" id="modal-inscription">
+    <div class="modal-box">
+      <span class="close" data-modal="inscription">&times;</span>
+      <h2>Inscription</h2>
+      <form id="form-inscription">
+
+        <p class="form-intro">
+          Remplissez les informations ci-dessous afin de confirmer votre participation
+          à l’événement. Vous recevrez un e-mail de validation après l’envoi du formulaire.
+        </p>
+
+        <label class="form-label">
+          Nom*
+          <input type="text" name="nom" placeholder="Votre nom" required />
+        </label>
+
+        <label class="form-label">
+          Prénom*
+          <input type="text" name="prenom" placeholder="Votre prénom" required />
+        </label>
+
+        <label class="form-label">
+          Adresse e-mail*
+          <input type="email" name="email" placeholder="Votre e-mail" required />
+        </label>
+
+        <label class="form-label">
+          Téléphone (facultatif)
+          <input type="tel" name="telephone" placeholder="Votre numéro de téléphone" />
+        </label>
+
+        <button type="submit" class="btn-submit">Valider l'inscription</button>
+
+        <p id="confirmation" class="confirmation-message" style="display:none;">
+          ✔ Votre inscription a bien été envoyée !
+          Vérifiez votre boîte mail.
         </p>
       </form>
+
     </div>
   </div>
 
-  <a href="badge.html">Aperçu du badge</a>
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2025 QREventio — Tous droits réservés
+  </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>
